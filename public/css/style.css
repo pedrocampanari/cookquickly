@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Chau+Philomene+One:ital@0;1&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ebebeb;
+}
+
+
+header {
+    background-color: white;
+    padding: 0.8rem 0 0.8rem 0;
+    border-bottom: 10px solid #f08602;
+    position: fixed;
+    width: 100%;
+    height: 4.7rem;
+    user-select: none;
+}
+
+header>nav>div {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    column-gap: 0.3rem;
+
+    font-family: "Chau Philomene One", serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.2rem;
+}
+
+header>nav>div>img {
+    width: 3rem;
+}
+
+main {
+    display: flex;
+}
+
+main > section {
+    width: 100%;
+    min-height: calc(100vh - 4.7rem);
+    height: calc(100vh - 4.7rem);
+    margin-top: 4.7rem;
+    padding: 2rem 0.5rem 2rem 2rem;
+    overflow-y: scroll;
+    text-align: justify;
+}
+
+aside {
+    width: 100%;
+    max-width: 250px;
+    border-right: 1px solid #e6e6e6;
+    box-shadow: 0 0 9px 0px #dddddd;
+    background-color: #ffffff;
+    min-height: calc(100vh);
+    padding: 4.7rem 0 0;
+}
+
+aside>nav>section {
+    display: flex;
+    min-height: calc((100vh - 4.7rem)/2);
+    flex-direction: column;
+    justify-content: start;
+}
+
+aside>nav>section:nth-child(2) {
+    justify-content: end;
+}
+
+.btn-nav {
+    width: 100%;
+    height: 3rem;
+    border: 0.5px solid #ebebeb;
+    background-color: #ffffff;
+    font-family: 'Roboto Condensed', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    text-align: start;
+    padding-left: 2rem;
+}
+
+.btn-nav:hover {
+    background-color: #f08602;
+    border: none;
+    box-shadow: 0 0 4px #b96600;
+    border-left: none;
+    color: #ffffff;
+    transition: 0.3s;
+}
+
+.btn-nav-selected {
+    background-color: #e47900;
+    border: none;
+    border-left: none;
+    color: #ffffff;
+}
+
+icon {
+    padding: 0 0.5rem 0 0;
+}
+
+icon>img {
+    width: 1.2rem;
+}
+
+.chau-philomene-one-regular {
+    font-family: "Chau Philomene One", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.chau-philomene-one-regular-italic {
+    font-family: "Chau Philomene One", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.title > h1{
+    font-family: "Chau Philomene One", serif;
+    font-size: 2em;
+    color: #000000;
+    user-select: none;
+}
+
+.controls-buttons {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 4px;
+}
+
+.controls-buttons > button {
+    padding: 0 2rem 0 2rem;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 5px 5px 5px;
+    border: 1px solid #000000;
+    height: 2.2rem;
+    font-family: 'Roboto condensed', Arial, serif;
+    font-size: 1.2rem;
+}
+
+.controls-buttons > button:hover {
+    background-color: #000000;
+    border: none;
+    color:#ffffff;
+    transition: 0.4s
+}
+
+.closed  {
+    background-color: #e7240a;
+    color: #ffffff;
+}
+
+.open {
+    background-color: #00ff88;
+    color:#000000
+}
+
+.itemsNotFound {
+    padding: 5rem 0 5rem 0 ;
+    border-radius: 7px 7px 7px;
+    border: 1px solid #9e9e9e;
+    width: 100%;
+}
+
+.itemsNotFound > p {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+
+.dialogBox {
+    position: fixed;
+    top:0.55rem;
+    display: none;
+    width: 50vw;
+    height: 45vh;
+    background-color: #f0f0f0;
+    margin: 7vh 25vw 8vh 25vw;
+    border-radius: 3px 3px 3px;
+    box-shadow: 0px 0px 10px #9e9e9e;
+    z-index: 1000;
+    padding: 20px;
+
+}
+
+
+
+.config-display-dialog{
+    height: auto;
+    width: 100%;
+    
+}
+
+
+.div-btns-dialog {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.btn-save-dialog {
+    width: 100%;
+    padding: 10px;
+    border-radius: none;
+    border: 1px solid #777777;
+    color: #777777;
+    font-family: 'Roboto condensed', Arial, serif;
+    border-bottom: none;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.btn-save-dialog:hover {
+    background-color: #f08602;
+    color: #ffffff;
+    transition: 0.2s;
+}
+
+
+.btn-close-dialog {
+    width: 100%;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    border: 1px solid #777777;
+    color: #777777;
+    font-family: 'Roboto condensed', Arial, serif;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.btn-close-dialog:hover {
+    background-color: #aa1400;
+    color: #ffffff;
+    transition: 0.2s;
+}
+
+

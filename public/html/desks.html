@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CookQuickly</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/desks-style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">CookQuickly</a>
+                <img src="../assets/logotype/logo-miniature.png" alt="" srcset="">
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <aside>
+            <nav>
+                <section>
+                    <button class="btn-nav" id="btn-nav-orders">
+                        <icon>
+                            <img src="../assets/icons/dark/icon-orders-dark.png" class="icon-img" name="orders">
+                        </icon>
+                        Pedidos
+                    </button>
+                    <button class="btn-nav" id="btn-nav-delivery">
+                        <icon>
+                            <img src="../assets/icons/dark/icon-delivery-dark.png" class="icon-img" name="delivery">
+                        </icon>
+                        Delivery
+                    </button>
+                    <button class="btn-nav btn-nav-selected" id="btn-nav-desks">
+                        <icon>
+                            <img src="../assets/icons/light/icon-desks-light.png" class="icon-img" name="active">
+                        </icon>
+                        Mesas
+                    </button>
+                    <button class="btn-nav" id="btn-nav-sales">
+                        <icon>
+                            <img src="../assets/icons/dark/icon-sales-dark.png" class="icon-img" name="sales">
+                        </icon>
+                        Promoções
+                    </button>
+                </section>
+                <section>
+                    <button class="btn-nav" id="btn-nav-menu">
+                        <icon>
+                            <img src="../assets/icons/dark/icon-menu-dark.png" class="icon-img" name="menu">
+                        </icon>
+                        Cardápio
+                    </button>
+                    <button class="btn-nav" id="btn-nav-dashboard">
+                        <icon>
+                            <img src="../assets/icons/dark/icon-dashboard-dark.png" class="icon-img" name="dashboard">
+                        </icon>
+                        Dashboard
+                    </button>
+                    <button class="btn-nav" id="btn-nav-settings">
+                        <icon>
+                            <img src="../assets/icons/dark/icon-settings-dark.png" class="icon-img" name="settings">
+                        </icon>
+                        Configurações
+                    </button>
+                </section>
+            </nav>
+        </aside>
+        <section>
+            <div class="lists">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="title col p-0">
+                            <h1>MESAS ABERTAS</h1>
+                        </div>
+                        <div class="col controls-buttons p-0">
+                            <button class="btn-command">Criar mesa +</button>
+                        </div>
+                    </div>
+                </div>
+                <hr class="m-0">
+                <div class="desks-list">
+                    <div class="itemsNotFound">
+                        <p>Nenhuma mesa aberta encontrada.</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="title col p-0">
+                            <h1>MESAS FECHADAS</h1>
+                        </div>
+                        <div class="col controls-buttons p-0">
+                            <button class="btn-command">Remover mesa</button>
+                        </div>
+                    </div>
+                </div>
+                <hr class="m-0">
+                <div class="desks-list">
+                    <div class="itemsNotFound">
+                        <p>Nenhuma mesa fechada encontrada.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        socket.on('desks info', (desks) => {
+            console.log('Conectado ao servidor.', desks);
+        });
+
+        function sendMessage() {
+            socket.emit('desks info', 'fdfd');
+            console.log('OK')
+        }
+    </script>
+    <script src="../js/dialog-box.js"></script>
+    <script src="../js/script-desks.js"></script>
+    <script src="../js/script-menu-btns.js"></script>
+    <script src="../js/style-icon.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
