@@ -13,16 +13,13 @@ class Dialog {
 
     }
 
-    applyStyleMainTag () {
-        this.mainTag[0].style.opacity = '0.2';
-        this.mainTag[0].style.pointerEvents = 'none';
-        this.mainTag[0].style.userSelect = 'none';
+
+    applyStyleMainTag() {
+        this.mainTag[0].classList.add("blocked");
     }
     
-    removeStyleMainTag () {
-        this.mainTag[0].style.opacity = '1';
-        this.mainTag[0].style.pointerEvents = 'auto';
-        this.mainTag[0].style.userSelect = 'auto';
+    removeStyleMainTag() {
+        this.mainTag[0].classList.remove("blocked");
     }
 
     createDialog () {
@@ -80,7 +77,11 @@ class Dialog {
     disableDialog () {
         this.dialogTag[0].style.display = 'none';
         this.removeStyleMainTag();
-        this.removeDialog();
+
+        setTimeout(() => {
+            this.removeDialog();
+            document.dispatchEvent(new Event("dialogClosed"));
+        }, 50);
     }
     
     enableEvents () {

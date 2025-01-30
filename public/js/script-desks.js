@@ -44,7 +44,7 @@ class ScriptConfigDesks {
 
                 if (json.length == 0) {
                     this.resetContainers();
-                } else{
+                } else {
                     json.forEach(element => {
                         this.printDesk(element);
 
@@ -78,35 +78,23 @@ class ScriptConfigDesks {
 
 
     enableBtns() {
+
         const btnsDesk = document.getElementsByClassName('btn-command');
 
-        
-            btnsDesk[0].addEventListener('click', () => {
-                dialog.type('i');
-            });
-       
+        if (btnsDesk.length === 0) {
+            console.warn("Nenhum botão encontrado para ativar o evento.");
+            return;
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        Array.from(btnsDesk).forEach(btn => {
+            btn.removeEventListener('click', this.openDialog); // Evita eventos duplicados
+            btn.addEventListener('click', this.openDialog);
+        });
     }
 
+    openDialog() {
+        dialog.type('i');
+    }
 
     printDesk(element) {
         if (element.status) {
@@ -134,7 +122,7 @@ class ScriptConfigDesks {
                     <span class="span-number-desk">${element.num}</span>
                     <span class="span-status-desk closed">FECHADA</span>
                 </button>`
-        } 
+        }
         return;
     }
 
@@ -161,3 +149,8 @@ class ScriptConfigDesks {
 
 const script = new ScriptConfigDesks();
 script.run();
+
+document.addEventListener("dialogClosed", () => {
+    console.log("Diálogo fechado, reativando botões...");
+    script.enableBtns();
+});
